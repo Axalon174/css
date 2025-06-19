@@ -1,0 +1,51 @@
+#navbar{
+    background: navy;
+    position: sticky;
+    padding-right: 25%;
+
+
+}
+.nav-var li a:hover{
+    /*on mouse over*/
+    background-color: rgb(88, 88, 174);
+
+}
+ul{    
+    list-style-type: none;
+    margin: 0;
+    padding: 10px;
+    text-align: right;
+    display: inline-block;
+    margin-top: 28px;
+    position: relative;
+    margin-left: 10%;
+    }
+li{
+    display: inline-block;
+    
+}
+a{
+    display: block;
+    padding: 20px;
+    color:white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 30px;
+    text-align: justify;
+    padding: 8px;
+    letter-spacing: 0.3em;
+}
+
+body{
+    background: black;
+    color:aliceblue;
+}
+.logo{
+    float: left;
+    max-width: 100px;
+    position: absolute;
+
+}
+.contentText{
+    position: relative;
+    text-align: center;
+}

@@ -1,0 +1,104 @@
+.container {
+    background-color: aqua;
+    display: grid;
+    padding: 10px;
+    text-align: center;
+    grid-template-columns: repeat(2, 2fr);
+    gap: 20px;
+}
+
+.card,
+.card-orange {
+    color: aliceblue;
+    height: 10vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    background-color: blueviolet;
+}
+
+.card:hover {
+    background-color: rgba(137, 43, 226, 0.699);
+}
+
+.card-orange {
+    background-color: rgb(219, 142, 25);
+}
+
+@media (max-width: 768px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+}
+input:focus{
+    border: 1px;
+    outline-color: blue;
+}
+
+.little-container {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: greenyellow;
+    width: 30%;
+    max-width: 25vw;
+    height: 100px;
+}
+
+/* Cajas superpuestas con z-index */
+    .box1, .box2 {
+      width: 150px;
+      height: 100px;
+      position: absolute;
+      border-radius: 5%;
+      transition: transform 0.5s ease;
+    }
+
+    .box1 {
+      background-color: royalblue;
+      top: 24.8%;
+      left: 38%;
+      z-index: 1;
+    }
+
+    .box2 {
+      background-color: tomato;
+      top: 24.8%;
+      left: 50%;
+      z-index: 2;
+    }
+
+    .box2:hover {
+      transform: scale(1.2); 
+    }
+    .box1:hover{
+        transform: scale(0.90);
+    }
+
+    /* Animación con @keyframes */
+    .animated-circle {
+      width: 100px;
+      height: 100px;
+      background-color: limegreen;
+      border-radius: 50%;
+      animation: bounce 4.2s infinite ease-in-out;
+      z-index: 0;
+    }
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+.animated-circle {
+  position: absolute;
+  top: 24.8%;
+  left: 26%;
+  transform: translate(-50%, -50%);
+}

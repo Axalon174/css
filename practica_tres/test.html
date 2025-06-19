@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ejemplo Z-index, Transiciones y Animaciones</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f0f0f0;
+    }
+
+    /* Cajas superpuestas con z-index */
+    .box1, .box2 {
+      width: 150px;
+      height: 150px;
+      position: absolute;
+      transition: transform 0.5s ease;
+    }
+
+    .box1 {
+      background-color: royalblue;
+      top: 100px;
+      left: 100px;
+      z-index: 1;
+    }
+
+    .box2 {
+      background-color: tomato;
+      top: 130px;
+      left: 130px;
+      z-index: 2;
+    }
+
+    .box2:hover {
+      transform: scale(1.2); /* Se agranda al hacer hover */
+    }
+
+    /* Animación con @keyframes */
+    .animated-circle {
+      width: 100px;
+      height: 100px;
+      background-color: limegreen;
+      border-radius: 50%;
+      position: absolute;
+      bottom: 50px;
+      animation: bounce 2s infinite ease-in-out;
+      z-index: 0;
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-50px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="box1">Z-Index 1</div>
+  <div class="box2">Z-Index 2</div>
+  <div class="animated-circle"></div>
+</body>
+</html>
