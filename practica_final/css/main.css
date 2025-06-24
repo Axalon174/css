@@ -46,6 +46,7 @@ body {
 }
 
 .message-area {
+  overflow-x: hidden ;
   flex: 1 1 auto;
   overflow-y: auto;
   max-height: 82vh;
@@ -296,6 +297,7 @@ body {
 .content .your-message,
 .content .his-message {
   display: flex;
+
 }
 
 .your-message {
