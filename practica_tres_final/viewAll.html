@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Documentos Vectorizados</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+
+        <!-- Bootstrap CSS v5.2.1 -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+            crossorigin="anonymous"
+        />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+    </head>
+
+    <body onload="loading()">
+        <header>
+            <!-- place navbar here -->
+        </header>
+        <main>
+            <table class="table table-striped table-hover" id="tabla-documentos">
+				<thead>
+					<tr>
+						<th>Titulo</th>
+						<th>ruta</th>
+                        <th>Subido en</th>
+                        <th>Operaciones</th>
+					</tr>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+
+        </main>
+        <footer>
+            <!-- place footer here -->
+        </footer>
+        <!-- Bootstrap JavaScript Libraries -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+            crossorigin="anonymous"
+        ></script>
+        <script>
+        let title = "";
+        function verifyLoggin(){
+            const sesion = JSON.parse(localStorage.getItem("sesion"));
+                if (!sesion?.Session) {
+                // Si no hay sesión, lo regresamos al login
+                window.location.replace("index.html"); }}
+    
+               function logout() {
+                localStorage.removeItem("sesion");
+                window.location.replace("index.html");
+                verifyLoggin();
+                }
+    
+            const ruta_documentos ="https://afuycqqqmqxgiqgxhxtv.supabase.co/storage/v1/object/public/anacleto.s3/RAG/";
+            function visualize(title){
+                window.open(ruta_documentos.concat(title).replace(/"/g, ''), '_blank');
+            }
+/**********************************
+ *  OBTENER TODOS LOS DOCUMENTOS  *
+ **********************************/
+function loading() {   
+    //alert("ready");
+    verifyLoggin();
+    var url = 'https://dev-academy.n8n.itelisoft.org/webhook/DocViewer'; // Reemplaza 'myurl' con la URL real del backend
+    $('#tabla-documentos').DataTable({
+    "ajax": {
+        "url": url,
+        "dataSrc": function(json) {
+            // Si json es un array con un solo objeto vacío, lo reemplazamos con []
+            if (Array.isArray(json) && json.length === 1 && Object.keys(json[0]).length === 0) {
+                return [];
+            }
+            return json;
+        }
+        },
+        "columns": [
+            { "data": "doc_title" },
+            { "data": "title" },
+            { "data": "created_at" },
+           { "data": null} // Botón personalizado
+        ],
+        "columnDefs": [
+            {
+                "targets": 2,
+                "render": function(data) {
+                    if (!data) return '';
+                    return dayjs(data).format('DD/MM/YYYY');
+                }
+            },
+            {
+    "targets": 3,
+    "render": function(data, type, row) {
+        const encodedTitle = encodeURIComponent(row.title);
+        const encodedLink = encodeURIComponent(row.link);
+        //alert(encodedLink)
+        return `
+            <div class="btn-group" role="group" aria-label="Acciones">
+                <button type="button" class="btn btn-success" onclick="visualize('${encodedTitle}')">Ver</button>
+                <button type="button" class="btn btn-danger" onclick="eliminarArchivo('${encodedTitle}')">Eliminar</button>
+                <a class="btn btn-success" href="${decodeURIComponent(encodedLink)}">ver
+            </div>
+        `;
+    }
+}
+
+        ]
+    });
+}
+function eliminarArchivo(title) {
+    if (!confirm("¿Estás seguro de que deseas eliminar este archivo?")) {
+        return;
+    }
+
+    const url = 'https://dev-academy.n8n.itelisoft.org/webhook/anacleto/delete'; // Cambia esto si usas una ruta distinta
+
+    fetch(url, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ title: title }) // Aquí puedes pasar lo que tu API necesite
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("Error al eliminar el archivo");
+        }
+        alert("Archivo eliminado correctamente");
+        $('#tabla-documentos').DataTable().ajax.reload(); // recarga la tabla
+    })
+    .catch(error => {
+        console.error(error);
+        alert("Ocurrió un error al intentar eliminar el archivo.");
+    });
+}
+
+
+    </script>	
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+            integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+            crossorigin="anonymous"
+        ></script>
+    </body>
+</html>

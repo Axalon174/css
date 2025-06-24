@@ -1,104 +1,52 @@
-.container {
-    background-color: aqua;
-    display: grid;
-    padding: 10px;
-    text-align: center;
-    grid-template-columns: repeat(2, 2fr);
-    gap: 20px;
+:root {
+    --btn-scarlet: rgb(134, 9, 30);
+    --bg-white: #f9f9f9;
+    --main-color: rgb(99, 16, 99);
+    --text-light: #f3ecec;
 }
 
-.card,
-.card-orange {
-    color: aliceblue;
-    height: 10vw;
+body, html {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-color: var(--bg-white);
+    font-family: sans-serif;
+}
+
+main {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    justify-content: start;
+    padding: 2rem 1rem 4rem;
+    max-width: 600px;
+    margin: auto;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    margin-top: 2rem;
 }
 
-.card {
-    background-color: blueviolet;
+h1 {
+    color: var(--main-color);
+    margin-bottom: 1rem;
+    text-align: center;
 }
 
-.card:hover {
-    background-color: rgba(137, 43, 226, 0.699);
+.bi {
+    color: var(--main-color);
+    margin: 0.3rem;
 }
 
-.card-orange {
-    background-color: rgb(219, 142, 25);
+form {
+    width: 100%;
 }
 
-@media (max-width: 768px) {
-    .container {
-        display: flex;
-        flex-direction: column;
-    }
-}
-input:focus{
-    border: 1px;
-    outline-color: blue;
+button[type="submit"] {
+    background-color: var(--btn-scarlet);
+    border: none;
 }
 
-.little-container {
-    display: flex;
-    justify-content: space-evenly;
-    background-color: greenyellow;
-    width: 30%;
-    max-width: 25vw;
-    height: 100px;
-}
-
-/* Cajas superpuestas con z-index */
-    .box1, .box2 {
-      width: 150px;
-      height: 100px;
-      position: absolute;
-      border-radius: 5%;
-      transition: transform 0.5s ease;
-    }
-
-    .box1 {
-      background-color: royalblue;
-      top: 24.8%;
-      left: 38%;
-      z-index: 1;
-    }
-
-    .box2 {
-      background-color: tomato;
-      top: 24.8%;
-      left: 50%;
-      z-index: 2;
-    }
-
-    .box2:hover {
-      transform: scale(1.2); 
-    }
-    .box1:hover{
-        transform: scale(0.90);
-    }
-
-    /* Animación con @keyframes */
-    .animated-circle {
-      width: 100px;
-      height: 100px;
-      background-color: limegreen;
-      border-radius: 50%;
-      animation: bounce 4.2s infinite ease-in-out;
-      z-index: 0;
-    }
-
-@keyframes bounce {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-3px);
-  }
-}
-.animated-circle {
-  position: absolute;
-  top: 24.8%;
-  left: 26%;
-  transform: translate(-50%, -50%);
+button[type="submit"]:hover {
+    background-color: rgb(112, 7, 25);
 }

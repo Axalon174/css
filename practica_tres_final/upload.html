@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <title>🗃️ Upload File</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./assets/css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+  </head>
+
+  <body onload="verifyLoggin(); handleUpload();">
+    <main>
+      <div class="mycontainer">
+        <div class="login-header"><h1>Subir un archivo</h1></div>
+        <p>Solo se permiten subir archivos de los siguientes formatos:</p>
+        <div class="mb-3 text-center">
+        <i class="bi bi-filetype-doc iconbg-word" style="font-size: 2rem;"></i>
+          <i class="bi bi-filetype-docx iconbg-word" style="font-size: 2rem;"></i>
+          <i class="bi bi-filetype-pdf iconbg-pdf" style="font-size: 2rem;"></i>
+          <i class="bi bi-filetype-txt iconbg-txt" style="font-size: 2rem;"></i>
+        </div>
+
+        <form id="upload-form" class="format" method="POST">
+          <div class="mb-3">
+            <label for="tituloDocumento" class="form-label">Título del documento</label>
+            <input
+              type="text"
+              id="doc_title"
+              name="doc_title"
+              class="form-control"
+              required
+              placeholder="¿Cuál es el título del documento?"
+            />
+          </div>
+
+          <div class="mb-3">
+                    <label for="archivo" class="form-label">Selecciona un archivo</label>
+                    <input type="file" id="data" name="data" class="form-control" accept=".txt, .docx, .pdf">
+          </div>
+
+          <button type="submit" class="">Enviar</button>
+          <button class="demiss">volver</button>
+
+        </form>
+      </div>
+
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">
+                ¿Quieres seguir subiendo archivos?
+              </h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+              <div class="alert alert-warning" role="alert">
+                Si prefieres no subir un archivo tu sesión será cerrada.
+              </div>
+              <div class="text-center">
+                <button type="button" class="btn btn-success btn-lg mb-2" onclick="visualize()">
+                  Ver archivo subido
+                </button>
+                <button type="button" class="btn btn-warning btn-lg" onclick="viewAll()">
+                  Ver todos los documentos
+                </button>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="logout()">
+                Cancelar
+              </button>
+              <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
+                Subir otro
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="./assets/js/main.js">
+        handleUpload();
+        verifyLoggin();
+    </script>
+<!-- Bootstrap JavaScript Libraries -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+            crossorigin="anonymous"
+        ></script>
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+            integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+            crossorigin="anonymous"
+        ></script>
+  </body>
+</html>
