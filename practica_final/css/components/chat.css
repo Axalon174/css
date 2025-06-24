@@ -1,0 +1,17 @@
+.chat-select {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  border-radius: var(--border-radius-sm);
+  margin: 0.125rem;
+  background-color: var(--content-color);
+  color: var(--text-light);
+}
+.chat-select:hover {
+  background-color: var(--hover-bg);
+}
+.chat-select__image {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+}

@@ -1,0 +1,27 @@
+.navbar {
+  display: flex;
+  padding: 0.75rem 1.25rem;
+  background-color: var(--navbar-bg);
+  border-bottom: 1px solid #333;
+  color: var(--text-muted);
+}
+.tab {
+  margin-right: 1.5rem;
+  position: relative;
+  padding-bottom: 0.25rem;
+  cursor: pointer;
+  font-weight: 500;
+}
+.tab--active {
+  color: var(--primary-accent);
+}
+.tab--active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background-color: var(--primary-accent);
+  border-radius: 1px;
+}

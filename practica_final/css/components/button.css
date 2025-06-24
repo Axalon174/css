@@ -1,0 +1,20 @@
+.btn, .icon-button {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+.icon-button--circle {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+.btn--microphone {
+  border-radius: 50%;
+  background-color: var(--primary-accent);
+  color: white;
+  padding: 0 18px;
+  margin: 0 5px;
+  text-align: center;
+  font-size: 22px;
+}

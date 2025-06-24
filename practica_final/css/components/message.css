@@ -1,0 +1,21 @@
+.chat-layout__message {
+  display: flex;
+}
+.chat-layout__message--from-user {
+  justify-content: flex-end;
+}
+.chat-layout__message--from-other {
+  justify-content: flex-start;
+}
+.chat-layout__message p {
+  padding: 12px;
+  border-radius: 20px;
+  margin: 10px;
+  max-width: 600px;
+}
+.chat-layout__message--from-user p {
+  background-color: var(--your-message-bg);
+}
+.chat-layout__message--from-other p {
+  background-color: var(--his-message-bg);
+}

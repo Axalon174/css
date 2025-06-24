@@ -1,0 +1,27 @@
+.message-input-container {
+  display: flex;
+  align-self: center;
+  position: fixed;
+  top: 92%;
+  width: 728px;
+  height: 54px;
+  border-radius: 15px;
+  background-color: var(--his-message-bg);
+}
+.message-input-wrapper {
+  display: flex;
+  margin: 3px;
+  align-items: center;
+}
+.message-input {
+  flex: 1;
+  height: 40px;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: large;
+  margin: 0 3px;
+}
+.message-input:focus {
+  outline: none;
+}

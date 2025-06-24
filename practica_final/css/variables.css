@@ -1,0 +1,15 @@
+:root {
+  --content-color: #212121;
+  --primary-accent: #9e73f2;
+  --your-message-bg: #3549ad;
+  --his-message-bg: #3e3a3a;
+  --search-bg: #191919bf;
+  --navbar-bg: #1e1e1e;
+  --hover-bg: #2d2a2a;
+  --text-light: white;
+  --text-muted: #ccc;
+  --border-radius-sm: 8px;
+  --border-radius-lg: 20px;
+  --sidebar-width: minmax(80px, 404px);
+  --topbar-height: 56px;
+}

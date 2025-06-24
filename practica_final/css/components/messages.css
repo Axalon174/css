@@ -1,0 +1,68 @@
+.message-area {
+  overflow-x: hidden;
+  flex: 1 1 auto;
+  overflow-y: auto;
+  max-height: 82vh;
+}
+
+.message-input-container {
+  display: flex;
+  align-self: center;
+  position: fixed;
+  top: 92%;
+  width: 728px;
+  height: 54px;
+  border-radius: 15px;
+  background-color: var(--his-message-bg);
+}
+
+.message-input-wrapper {
+  display: flex;
+  margin: 3px;
+  align-items: center;
+}
+
+.message-input {
+  width: 645px;
+  height: 40px;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: large;
+  margin: 0 3px;
+}
+
+.message-input:focus {
+  outline: none;
+}
+
+.your-message, .his-message {
+  display: flex;
+}
+
+.your-message {
+  justify-content: flex-end;
+  position: relative;
+  right: 10%;
+}
+
+.his-message {
+  justify-content: flex-start;
+  position: relative;
+  left: 10%;
+}
+
+.your-message p, .his-message p {
+  padding: 12px;
+  border-radius: 20px;
+  margin: 10px;
+  max-width: 600px;
+}
+
+.your-message p {
+  background-color: var(--your-message-bg);
+}
+
+.his-message p {
+  background-color: var(--his-message-bg);
+}
